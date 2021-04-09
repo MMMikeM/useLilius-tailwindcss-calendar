@@ -182,13 +182,21 @@ const App = () => {
                     if (
                       !inRange(day, startOfMonth(viewing), endOfMonth(viewing))
                     ) {
-                      classes = " text-gray-400 hover:text-gray-600";
+                      classes += " text-gray-400 hover:text-gray-600";
+                    }
+                    if (isToday(day)) {
+                      classes += " font-bold";
+                    }
+                    if (isSelected(day)) {
+                      classes +=
+                        " hover:bg-indigo-900 hover:text-white bg-indigo-800 text-white";
+                    } else {
+                      classes += " hover:bg-indigo-200 hover:text-indigo-900";
                     }
                     return (
                       <div
                         className={
-                          "px-2.5 py-1 rounded-lg cursor-pointer hover:bg-indigo-200 hover:text-indigo-900" +
-                          classes
+                          "px-2.5 py-1 rounded-lg cursor-pointer " + classes
                         }
                         data-in-range={inRange(
                           day,
@@ -199,7 +207,6 @@ const App = () => {
                         data-today={isToday(day)}
                         key={`${day}`}
                         onClick={() => {
-                          setIsOpen(!isOpen);
                           toggle(day, true);
                         }}
                       >
