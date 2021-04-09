@@ -109,7 +109,7 @@ const App = () => {
   }, [selected]);
 
   return (
-    <div className="App flex w-screen h-screen justify-center p-24 bg-black">
+    <div className="App flex w-screen h-screen justify-center p-24 bg-gray-100">
       <div className="relative text-gray-600">
         <span className="absolute top-0 right-0 flex items-center pl-2 ">
           <button
